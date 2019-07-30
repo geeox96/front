@@ -1,4 +1,4 @@
-export const juices = [
+﻿export const juices = [
     {
         _id: 1,
         nome: "Californication",
@@ -34,6 +34,226 @@ export const juices = [
     },
     {
         _id: 4,
+        nome: "Alzir",
+        img: "http://s3.amazonaws.com/img.iluria.com/product/47C00C/C2D06A/450xN.jpg",
+        //ID
+        fabricante: "Constellation Steam",
+        nota: 5,
+        descricao: "Mistura entre manga, mamão e melão",
+        info: "Mistura entre manga, mamão e melão. Uma mistura incrível, com sabor muito fiel aos ingredientes citados",
+        valor: "32,00"
+    },
+    {
+        _id: 5,
+        nome: "Alzir",
+        img: "http://s3.amazonaws.com/img.iluria.com/product/47C00C/C2D06A/450xN.jpg",
+        //ID
+        fabricante: "Constellation Steam",
+        nota: 5,
+        descricao: "Mistura entre manga, mamão e melão",
+        info: "Mistura entre manga, mamão e melão. Uma mistura incrível, com sabor muito fiel aos ingredientes citados",
+        valor: "32,00"
+    },
+    {
+        _id: 6,
+        nome: "Alzir",
+        img: "http://s3.amazonaws.com/img.iluria.com/product/47C00C/C2D06A/450xN.jpg",
+        //ID
+        fabricante: "Constellation Steam",
+        nota: 5,
+        descricao: "Mistura entre manga, mamão e melão",
+        info: "Mistura entre manga, mamão e melão. Uma mistura incrível, com sabor muito fiel aos ingredientes citados",
+        valor: "32,00"
+    },
+    {
+        _id: 7,
+        nome: "Alzir",
+        img: "http://s3.amazonaws.com/img.iluria.com/product/47C00C/C2D06A/450xN.jpg",
+        //ID
+        fabricante: "Constellation Steam",
+        nota: 5,
+        descricao: "Mistura entre manga, mamão e melão",
+        info: "Mistura entre manga, mamão e melão. Uma mistura incrível, com sabor muito fiel aos ingredientes citados",
+        valor: "32,00"
+    },
+    {
+        _id: 8,
+        nome: "Alzir",
+        img: "http://s3.amazonaws.com/img.iluria.com/product/47C00C/C2D06A/450xN.jpg",
+        //ID
+        fabricante: "Constellation Steam",
+        nota: 5,
+        descricao: "Mistura entre manga, mamão e melão",
+        info: "Mistura entre manga, mamão e melão. Uma mistura incrível, com sabor muito fiel aos ingredientes citados",
+        valor: "32,00"
+    },
+    {
+        _id: 9,
+        nome: "Alzir",
+        img: "http://s3.amazonaws.com/img.iluria.com/product/47C00C/C2D06A/450xN.jpg",
+        //ID
+        fabricante: "Constellation Steam",
+        nota: 2.1,
+        descricao: "Mistura entre manga, mamão e melão",
+        info: "Mistura entre manga, mamão e melão. Uma mistura incrível, com sabor muito fiel aos ingredientes citados",
+        valor: "32,00"
+    },
+    {
+        _id: 10,
+        nome: "Alzir",
+        img: "http://s3.amazonaws.com/img.iluria.com/product/47C00C/C2D06A/450xN.jpg",
+        //ID
+        fabricante: "Constellation Steam",
+        nota: 5,
+        descricao: "Mistura entre manga, mamão e melão",
+        info: "Mistura entre manga, mamão e melão. Uma mistura incrível, com sabor muito fiel aos ingredientes citados",
+        valor: "32,00"
+    },
+    {
+        _id: 11,
+        nome: "Alzir",
+        img: "http://s3.amazonaws.com/img.iluria.com/product/47C00C/C2D06A/450xN.jpg",
+        //ID
+        fabricante: "Constellation Steam",
+        nota: 5,
+        descricao: "Mistura entre manga, mamão e melão",
+        info: "Mistura entre manga, mamão e melão. Uma mistura incrível, com sabor muito fiel aos ingredientes citados",
+        valor: "32,00"
+    },
+    {
+        _id: 12,
+        nome: "Alzir",
+        img: "http://s3.amazonaws.com/img.iluria.com/product/47C00C/C2D06A/450xN.jpg",
+        //ID
+        fabricante: "Constellation Steam",
+        nota: 5,
+        descricao: "Mistura entre manga, mamão e melão",
+        info: "Mistura entre manga, mamão e melão. Uma mistura incrível, com sabor muito fiel aos ingredientes citados",
+        valor: "32,00"
+    },
+    {
+        _id: 13,
+        nome: "Alzir",
+        img: "http://s3.amazonaws.com/img.iluria.com/product/47C00C/C2D06A/450xN.jpg",
+        //ID
+        fabricante: "Constellation Steam",
+        nota: 3.8,
+        descricao: "Mistura entre manga, mamão e melão",
+        info: "Mistura entre manga, mamão e melão. Uma mistura incrível, com sabor muito fiel aos ingredientes citados",
+        valor: "32,00"
+    },
+    {
+        _id: 14,
+        nome: "Alzir",
+        img: "http://s3.amazonaws.com/img.iluria.com/product/47C00C/C2D06A/450xN.jpg",
+        //ID
+        fabricante: "Constellation Steam",
+        nota: 3.5,
+        descricao: "Mistura entre manga, mamão e melão",
+        info: "Mistura entre manga, mamão e melão. Uma mistura incrível, com sabor muito fiel aos ingredientes citados",
+        valor: "32,00"
+    },
+    {
+        _id: 15,
+        nome: "Alzir",
+        img: "http://s3.amazonaws.com/img.iluria.com/product/47C00C/C2D06A/450xN.jpg",
+        //ID
+        fabricante: "Constellation Steam",
+        nota: 5,
+        descricao: "Mistura entre manga, mamão e melão",
+        info: "Mistura entre manga, mamão e melão. Uma mistura incrível, com sabor muito fiel aos ingredientes citados",
+        valor: "32,00"
+    },
+    {
+        _id: 16,
+        nome: "Alzir",
+        img: "http://s3.amazonaws.com/img.iluria.com/product/47C00C/C2D06A/450xN.jpg",
+        //ID
+        fabricante: "Constellation Steam",
+        nota: 5,
+        descricao: "Mistura entre manga, mamão e melão",
+        info: "Mistura entre manga, mamão e melão. Uma mistura incrível, com sabor muito fiel aos ingredientes citados",
+        valor: "32,00"
+    },
+    {
+        _id: 17,
+        nome: "Alzir",
+        img: "http://s3.amazonaws.com/img.iluria.com/product/47C00C/C2D06A/450xN.jpg",
+        //ID
+        fabricante: "Constellation Steam",
+        nota: 5,
+        descricao: "Mistura entre manga, mamão e melão",
+        info: "Mistura entre manga, mamão e melão. Uma mistura incrível, com sabor muito fiel aos ingredientes citados",
+        valor: "32,00"
+    },
+    {
+        _id: 18,
+        nome: "Alzir",
+        img: "http://s3.amazonaws.com/img.iluria.com/product/47C00C/C2D06A/450xN.jpg",
+        //ID
+        fabricante: "Constellation Steam",
+        nota: 4,
+        descricao: "Mistura entre manga, mamão e melão",
+        info: "Mistura entre manga, mamão e melão. Uma mistura incrível, com sabor muito fiel aos ingredientes citados",
+        valor: "32,00"
+    },
+    {
+        _id: 19,
+        nome: "Alzir",
+        img: "http://s3.amazonaws.com/img.iluria.com/product/47C00C/C2D06A/450xN.jpg",
+        //ID
+        fabricante: "Constellation Steam",
+        nota: 5,
+        descricao: "Mistura entre manga, mamão e melão",
+        info: "Mistura entre manga, mamão e melão. Uma mistura incrível, com sabor muito fiel aos ingredientes citados",
+        valor: "32,00"
+    },
+    {
+        _id: 20,
+        nome: "Alzir",
+        img: "http://s3.amazonaws.com/img.iluria.com/product/47C00C/C2D06A/450xN.jpg",
+        //ID
+        fabricante: "Constellation Steam",
+        nota: 5,
+        descricao: "Mistura entre manga, mamão e melão",
+        info: "Mistura entre manga, mamão e melão. Uma mistura incrível, com sabor muito fiel aos ingredientes citados",
+        valor: "32,00"
+    },
+    {
+        _id: 21,
+        nome: "Alzir",
+        img: "http://s3.amazonaws.com/img.iluria.com/product/47C00C/C2D06A/450xN.jpg",
+        //ID
+        fabricante: "Constellation Steam",
+        nota: 5,
+        descricao: "Mistura entre manga, mamão e melão",
+        info: "Mistura entre manga, mamão e melão. Uma mistura incrível, com sabor muito fiel aos ingredientes citados",
+        valor: "32,00"
+    },
+    {
+        _id: 22,
+        nome: "Alzir",
+        img: "http://s3.amazonaws.com/img.iluria.com/product/47C00C/C2D06A/450xN.jpg",
+        //ID
+        fabricante: "Constellation Steam",
+        nota: 5,
+        descricao: "Mistura entre manga, mamão e melão",
+        info: "Mistura entre manga, mamão e melão. Uma mistura incrível, com sabor muito fiel aos ingredientes citados",
+        valor: "32,00"
+    },
+    {
+        _id: 23,
+        nome: "Alzir",
+        img: "http://s3.amazonaws.com/img.iluria.com/product/47C00C/C2D06A/450xN.jpg",
+        //ID
+        fabricante: "Constellation Steam",
+        nota: 5,
+        descricao: "Mistura entre manga, mamão e melão",
+        info: "Mistura entre manga, mamão e melão. Uma mistura incrível, com sabor muito fiel aos ingredientes citados",
+        valor: "32,00"
+    },
+    {
+        _id: 24,
         nome: "Alzir",
         img: "http://s3.amazonaws.com/img.iluria.com/product/47C00C/C2D06A/450xN.jpg",
         //ID
