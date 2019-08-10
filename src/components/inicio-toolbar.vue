@@ -3,9 +3,9 @@
     dark
     app
     fade-img-on-scroll
-    src="https://picsum.photos/1920/1080?random"
+    
   >
-    <v-toolbar-title>Base do vapor</v-toolbar-title>
+    <v-toolbar-title>Vapor Center</v-toolbar-title>
   </v-toolbar>
 </template>
 

@@ -1,14 +1,15 @@
 <template>
   <v-container fluid grid-list-xl text-xs-center>
+    <detalhes-juice :abrir="dialogDetalheDoJuice" :liquido="detalheJuice" @fechar="fechaDialogDetalhe"/>
       <v-layout justify-center row wrap>
-        <v-flex xl2 lg3 md3 sm4 xs6 v-for="liquido in juices" :key="liquido.id">
+        <v-flex xl2 lg3 md3 sm6 xs12 v-for="liquido in juices" :key="liquido.id">
           <v-hover 
             :open-delay="300">
       <template v-slot:default="{ hover }" >
         <v-card
           class="mx-auto elevation-0"
           max-width="344"
-          
+          @click="abrirDetalheJuice(liquido)"
         >
           <v-img :aspect-ratio="9/11" lazy-src :src="liquido.img" />
           <v-fade-transition>
@@ -40,17 +41,35 @@
 
 <script>
 import { juices } from "../api/juices";
+import DetalhesJuice from "../components/detalhes-juice";
 
 export default {
+  components: {
+    "detalhes-juice": DetalhesJuice
+  },
+
     data() {
     return {
       juices: juices,
-      overlay: false
+      overlay: false,
+      detalheJuice: null,
+      dialogDetalheDoJuice: false,
     };
   },
 
   mounted() {
-    console.log(juices)
+    
+  },
+
+  methods: {
+    abrirDetalheJuice(liquido) {
+      this.dialogDetalheDoJuice = true;
+      this.detalheJuice = liquido;
+    }, 
+
+    fechaDialogDetalhe() {
+      this.dialogDetalheDoJuice = false;
+    }
   }
 
 }
