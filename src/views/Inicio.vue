@@ -1,97 +1,85 @@
 <template>
-  <v-container grid-list-md text-xs-center>
-      <v-layout row wrap>
-    <v-flex xl4 lg4 md12 sm12 xs12>
-      <div>
-        <v-toolbar flat color="amber">
-            <v-spacer></v-spacer>
-          <v-toolbar-title>Novos juices cadastrados</v-toolbar-title>
-          <v-spacer></v-spacer>
-        </v-toolbar>
-        <v-data-table hide-headers hide-actions :items="juices" item-key="name">
-          <template v-slot:items="props">
-            <tr @click="detalharFabricante(props.item)">
-              <td>{{ props.item.marca }}</td>
-              <td class="text-xs-center">{{ props.item.liquido }}</td>
-              <td class="text-xs-center"><v-icon>open_in_new</v-icon></td>
-            </tr>
-          </template>
-          <template v-slot:expand="props">
-            <v-card flat>
-              <v-card-text>Peek-a-boo!</v-card-text>
-            </v-card>
-          </template>
-        </v-data-table>
-      </div>
-    </v-flex>
-    <v-flex xl4 lg4 md12 sm12 xs12>
-      <div>
-        <v-toolbar flat color="amber">
-            <v-spacer></v-spacer>
-          <v-toolbar-title>Novos videos cadastrados</v-toolbar-title>
-          <v-spacer></v-spacer>
-        </v-toolbar>
-        <v-data-table hide-headers hide-actions :items="videos"  item-key="name">
-          <template v-slot:items="props">
-            <tr @click="detalharFabricante(props.item)">
-              <td>{{ props.item.youtuber }}</td>
-              <td>{{ props.item.video }}</td>
-              <td class="text-xs-left"><v-icon>open_in_new</v-icon></td>
-            </tr>
-          </template>
-          <template v-slot:expand="props">
-            <v-card flat>
-              <v-card-text>Peek-a-boo!</v-card-text>
-            </v-card>
-          </template>
-        </v-data-table>
-      </div>
-    </v-flex>
-    <v-flex xl4 lg4 md12 sm12 xs12>
-      <div>
-        <v-toolbar flat color="amber">
-            <v-spacer></v-spacer>
-          <v-toolbar-title>Novas promoções</v-toolbar-title>
-          <v-spacer></v-spacer>
-        </v-toolbar>
-        <v-data-table hide-headers hide-actions :items="promo" :search="search" item-key="name">
-          <template v-slot:items="props">
-            <tr @click="detalharFabricante(props.item)">
-              <td>{{ props.item.marca }}</td>
-              <td class="text-xs-center">{{ props.item.descicao }}</td>
-              <td class="text-xs-center"><v-icon>open_in_new</v-icon></td>
-            </tr>
-          </template>
-          <template v-slot:expand="props">
-            <v-card flat>
-              <v-card-text>Peek-a-boo!</v-card-text>
-            </v-card>
-          </template>
-        </v-data-table>
-      </div>
-    </v-flex>
-    </v-layout>
-  </v-container>
+<v-container grid-list-xl fluid>
+    <abrir-video />
+<v-layout align-center justify-space-around row >
+<v-flex xl4>
+ <v-simple-table class="primary" height="300" dark fixed-header>
+      <thead>
+        <tr>
+          <th class="text-left">Juice</th>
+          <th class="text-right">Fabricante</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="item in juice" :key="item.name" @click='ola(item.msg)'>
+          <td class="text-left">{{ item.liquido }}</td>
+          <td class="text-right">{{ item.fabricante }}</td>
+        </tr>
+      </tbody>
+    </v-simple-table>
+</v-flex>
+
+<v-flex xl4>
+ <v-simple-table class="primary" height="300" dark fixed-header>
+      <thead>
+        <tr>
+          <th class="text-left">Canal YouTube</th>
+          <th class="text-right">Video</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="item in video" :key="item.name" @click='abriryout(item.link)'>
+          <td class="text-left">{{ item.youtuber }}</td>
+          <td class="text-right">{{ item.video }}</td>
+        </tr>
+      </tbody>
+    </v-simple-table>
+</v-flex>
+
+<v-flex xl4>
+ <v-simple-table class="primary" height="300" dark fixed-header>
+      <thead>
+        <tr>
+          <th class="text-left">Fabricante</th>
+          <th class="text-right">Descrição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="item in promocao" :key="item.name" @click='ola(item.msg)'>
+          <td class="text-left">{{ item.fabricante }}</td>
+          <td class="text-right">{{ item.descicao }}</td>
+        </tr>
+      </tbody>
+    </v-simple-table>
+</v-flex>
+</v-layout>
+</v-container>
+
 </template>
 
 <script>
-import { videos, promo, juices } from "../api/inicio.js";
-
+import { juice, video, promocao } from "../api/inicio";
 export default {
-  data() {
+     data() {
     return {
-      videos: videos,
-      promo: promo,
-      juices: juices
+      juice: juice,
+      video: video,
+      promocao: promocao
     };
   },
 
   methods: {
-    detalharFabricante(detalhesFabricante) {
-      console.log("fabricante !!", detalhesFabricante);
-      this.dialogDetalheDoJuice = true;
-      this.detalheDoFabricante = detalhesFabricante;
-    }
+      ola(msg) {
+          alert(msg)
+      },
+      abriryout(url) {
+        window.open(url);
+      }
   }
+
 }
 </script>
+
+<style>
+
+</style>

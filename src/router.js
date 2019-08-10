@@ -21,25 +21,25 @@ export default new Router({
       name: 'Fabricantes',
       component: () => import('./views/Fabricantes.vue')
     },
+    // {
+    //   path: '/fornecedores',
+    //   name: 'Fabricantes',
+    //   component: () => import('./views/Fabricantes.vue')
+    // },
+    // {
+    //   path: '/videos',
+    //   name: 'Fabricantes',
+    //   component: () => import('./views/Fabricantes.vue')
+    // },
+    // {
+    //   path: '/reviews',
+    //   name: 'Fabricantes',
+    //   component: () => import('./views/Fabricantes.vue')
+    // },
     {
-      path: '/fornecedores',
-      name: 'Fabricantes',
-      component: () => import('./views/Fabricantes.vue')
-    },
-    {
-      path: '/videos',
-      name: 'Fabricantes',
-      component: () => import('./views/Fabricantes.vue')
-    },
-    {
-      path: '/reviews',
-      name: 'Fabricantes',
-      component: () => import('./views/Fabricantes.vue')
-    },
-    {
-      path: '/Re',
-      name: 'Classificados Vape',
-      component: () => import('./views/Fabricantes.vue')
+      path: '/login',
+      name: 'Login',
+      component: () => import('./views/Login.vue')
     }
   ]
 })
