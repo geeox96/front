@@ -1,9 +1,9 @@
 <template>
   <v-toolbar
     dark
-    app
     fade-img-on-scroll
-    
+    app
+    color="primary"
   >
     <v-toolbar-title>Vapor Center</v-toolbar-title>
   </v-toolbar>

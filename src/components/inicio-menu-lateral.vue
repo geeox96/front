@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer expand-on-hover permanent app dark clipped>
+  <v-navigation-drawer expand-on-hover app permanent dark clipped color="primary">
     <v-list-item v-for="item in menu" :key="item.title" @click="nevegarPara(item.ir)">
       <v-list-item-icon><v-icon>{{item.icon}}</v-icon></v-list-item-icon>
       <v-list-item-title class="ml-5">{{item.titulo}}</v-list-item-title>
