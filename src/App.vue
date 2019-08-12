@@ -1,8 +1,8 @@
 <template>
   <v-app id="app">
-    <inicio-menu-lateral/>
+    <inicio-menu-lateral app/>
   <v-content>
-    <inicio-toolbar/>
+    <inicio-toolbar app/>
     <v-container fluid>
       <router-view></router-view>
     </v-container>

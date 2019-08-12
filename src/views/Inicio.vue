@@ -1,6 +1,5 @@
 <template>
 <v-container grid-list-xl fluid>
-    <abrir-video />
 <v-layout align-center justify-space-around row >
 <v-flex xl4>
  <v-simple-table class="primary" height="300" dark fixed-header>
@@ -81,5 +80,9 @@ export default {
 </script>
 
 <style>
+
+.alo {
+  color: aqua
+}
 
 </style>

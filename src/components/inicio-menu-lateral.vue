@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer expand-on-hover app permanent dark clipped color="primary">
+  <v-navigation-drawer v-model='drawer' expand-on-hover app dark clipped color="tertiary">
     <v-list-item v-for="item in menu" :key="item.title" @click="nevegarPara(item.ir)">
       <v-list-item-icon><v-icon>{{item.icon}}</v-icon></v-list-item-icon>
       <v-list-item-title class="ml-5">{{item.titulo}}</v-list-item-title>
@@ -15,7 +15,7 @@
 export default {
   data() {
     return {
-      ativo: true,
+      $Drawer: false,
       menu: [
         { titulo: "Inicio", icon: "mdi-home", ir: "Inicio" },
         { titulo: "Juice", icon: "mdi-eyedropper", ir: "Juices" },
