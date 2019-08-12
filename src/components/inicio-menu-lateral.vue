@@ -4,6 +4,7 @@
     expand-on-hover
     app
     dark
+    temporary
     clipped
     color="tertiary"
   >
