@@ -7,6 +7,11 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
+      path: '/login',
+      name: 'Logar',
+      component: () => import('./views/Login.vue')
+    },
+    {
       path: '/',
       name: 'Inicio',
       component: () => import('./views/Inicio.vue')
@@ -21,6 +26,7 @@ export default new Router({
       name: 'Fabricantes',
       component: () => import('./views/Fabricantes.vue')
     },
+  
     // {
     //   path: '/fornecedores',
     //   name: 'Fabricantes',
@@ -36,10 +42,5 @@ export default new Router({
     //   name: 'Fabricantes',
     //   component: () => import('./views/Fabricantes.vue')
     // },
-    {
-      path: '/login',
-      name: 'Login',
-      component: () => import('./views/Login.vue')
-    }
   ]
 })

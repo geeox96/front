@@ -1,5 +1,15 @@
 export const video = [
     {
+        youtuber: "Vapers Club",
+        video: "WOTOFO RECURVE DUAL",
+        link: "https://www.youtube.com/watch?v=N8JcaC4Tcw4"
+    },
+    {
+        youtuber: "Vapers Brazil",
+        video: "WOTOFO RECURVE DUAL",
+        link: "https://www.youtube.com/watch?v=j2jU-oksD04"
+    },
+    {
         youtuber: "Zona do vapor",
         video: "VAPE É PARA BABACA? VIDEO RESPOSTA AO CANAL MAMAEFALEI",
         link: "https://www.youtube.com/watch?v=xbzj5xcF-qM"
@@ -36,49 +46,19 @@ export const video = [
         link: "https://www.youtube.com/watch?v=CopaBzBfNBQ"
     },
     {
-        youtuber: "Vapers Brazil",
-        video: "HellVape Rebirth RDA - Review",
-        link: "https://www.youtube.com/watch?v=xOJWDNdPgDM"
-    },
-    {
         youtuber: "Edu Vapor",
         video: "Os 3 Melhores Juices de Tabaco Que eu Já Experimentei",
         link: "https://www.youtube.com/watch?v=HHtJwTiP9Pk"
-    },
-    {
-        youtuber: "O Poderoso Vapor",
-        video: "TALLICA TANK by Teslacigs // VAPE Review",
-        link: "https://www.youtube.com/watch?v=vCN7-Mo5xso"
     }
 ]
 
 export const juice = [
-    {
-        fabricante: "Capi Juice",
-        liquido: "Macaco Gordo",
-        msg: "CAPI A MELHOR"
-    },
-    {
-        fabricante: "Giardini",
-        liquido: "Glock",
-        msg: "GIARDINI CARO"
-    },
 ]
 
 export const promocao = [
     {
-        fabricante: "Cloud Master",
-        descicao: "Desconto 20% em tudo",
-        msg: "huuum.."
-    },
-    {
-        fabricante: "Cloud Master",
-        descicao: "Frete free para o parana",
-        msg: "OLOSCO"
-    },
-    {
-        fabricante: "Capi Juice",
-        descicao: "Frete free para o parana",
-        msg: "OLOSCO"
+        fabricante: "Steam Juices",
+        descicao: "10% de desconto acima de $200",
+        msg: "Nas compras acima de R$ 200,00 você ganha 10% de desconto no valor dos juices! Utilize o cupom STEAM10"
     },
 ]

@@ -9,18 +9,23 @@ export const fabricantes = [
         nome: "Capi Juice",
         estado: "Paraná",
         quantidadeJuice: 23,
-        site: "https://www.cmjuice.com.br/",
+        site: "https://capijuices.com",
     },
     {
         nome: "The Juice",
         estado: "Pará",
         quantidadeJuice: 8,
-        site: "https://www.cmjuice.com.br/",
     },
     {
         nome: "La Casa de Juice",
         estado: "Paraná",
         quantidadeJuice: 14,
-        site: "https://www.cmjuice.com.br/",
+        site: "https://www.lacasadejuice.com.br/",
+    },
+    {
+        nome: "Rustic Vapers",
+        estado: "São Paulo",
+        quantidadeJuice: 13,
+        site: "http://rusticvapers.com.br/",
     }
 ]
