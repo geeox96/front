@@ -5,12 +5,16 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    drawer: true
+    drawer: false
 
   },
+
   mutations: {
-
+    abrirDrawer() {
+      this.state.drawer = !this.state.drawer
+    }
   },
+
   actions: {
 
   }
