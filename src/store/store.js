@@ -8,9 +8,13 @@ export default new Vuex.Store({
     drawer: true
 
   },
-  mutations: {
 
+  mutations: {
+    abrirDrawer() {
+      this.state.drawer = !this.state.drawer
+    }
   },
+
   actions: {
 
   }

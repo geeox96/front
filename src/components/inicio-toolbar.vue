@@ -1,15 +1,12 @@
 <template>
-  <v-app-bar 
-    color="primary"
-    dark
-  >
-  <v-btn fab append class="elevation-0 hidden-lg-and-up" click="$store.commit('drawer')" icon large>
-    <v-icon>mdi-menu</v-icon>
+  <v-app-bar color="primary" dark>
+    <v-btn fab append class="elevation-0 hidden-lg-and-up" @click="abrirMenu" icon large>
+      <v-icon>mdi-menu</v-icon>
     </v-btn>
     <v-toolbar-title>Vapor Center</v-toolbar-title>
-    <v-spacer/>
+    <v-spacer />
     <v-btn fab append class="elevation-0" @click="fazerLogin" icon large>
-    <v-icon>mdi-account-box</v-icon>
+      <v-icon>mdi-account-box</v-icon>
     </v-btn>
   </v-app-bar>
 </template>
@@ -21,13 +18,15 @@ export default {
   },
 
   methods: {
-    abrirDrawer(){
-      drawer? drawer : !drawer
+    abrirMenu() {
+      console.log("chamou");
+      this.$store.commit("abrirDrawer");
+      console.log("chamou2");
     },
 
     fazerLogin() {
-      this.$router.push({ name: 'Logar' });
-    },
+      this.$router.push({ name: "Logar" });
+    }
   }
 };
 </script>
