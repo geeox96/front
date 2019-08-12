@@ -1,21 +1,32 @@
 <template>
-  <v-navigation-drawer v-model='drawer' expand-on-hover app dark clipped color="tertiary">
+  <v-navigation-drawer
+    v-model="$store.state.drawer"
+    expand-on-hover
+    app
+    dark
+    clipped
+    color="tertiary"
+  >
     <v-list-item v-for="item in menu" :key="item.title" @click="nevegarPara(item.ir)">
-      <v-list-item-icon><v-icon>{{item.icon}}</v-icon></v-list-item-icon>
+      <v-list-item-icon>
+        <v-icon>{{item.icon}}</v-icon>
+      </v-list-item-icon>
       <v-list-item-title class="ml-5">{{item.titulo}}</v-list-item-title>
     </v-list-item>
     <v-list-item @click="abrirClassificado">
-      <v-list-item-icon><v-icon>mdi-store</v-icon></v-list-item-icon>
+      <v-list-item-icon>
+        <v-icon>mdi-store</v-icon>
+      </v-list-item-icon>
       <v-list-item-title class="ml-5">Classificados Vape</v-list-item-title>
     </v-list-item>
   </v-navigation-drawer>
 </template>
 
 <script>
+import { store } from "./../store/store";
 export default {
   data() {
     return {
-      $Drawer: false,
       menu: [
         { titulo: "Inicio", icon: "mdi-home", ir: "Inicio" },
         { titulo: "Juice", icon: "mdi-eyedropper", ir: "Juices" },
