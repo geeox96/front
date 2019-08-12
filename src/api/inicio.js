@@ -1,7 +1,7 @@
 export const video = [
     {
         youtuber: "Vapers Club",
-        video: "WOTOFO RECURVE DUAL",
+        video: "Review VooPoo Drag Nano POD",
         link: "https://www.youtube.com/watch?v=N8JcaC4Tcw4"
     },
     {
