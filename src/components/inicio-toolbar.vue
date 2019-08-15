@@ -19,9 +19,7 @@ export default {
 
   methods: {
     abrirMenu() {
-      console.log("chamou");
       this.$store.commit("abrirDrawer");
-      console.log("chamou2");
     },
 
     fazerLogin() {
