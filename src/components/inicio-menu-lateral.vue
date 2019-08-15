@@ -4,8 +4,7 @@
     expand-on-hover
     app
     dark
-    temporary
-    clipped
+    hide-overlay
     color="tertiary"
   >
     <v-list-item v-for="item in menu" :key="item.title" @click="nevegarPara(item.ir)">

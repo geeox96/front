@@ -1,5 +1,10 @@
 export const video = [
     {
+        youtuber: "Marquês do Vapor",
+        video: "Footoon Aqua Master V2 - Unboxing",
+        link: "https://www.youtube.com/watch?v=pZSEh0c6mIw"
+    },
+    {
         youtuber: "Vapers Club",
         video: "Review VooPoo Drag Nano POD",
         link: "https://www.youtube.com/watch?v=N8JcaC4Tcw4"
@@ -39,11 +44,6 @@ export const video = [
         youtuber: "Zona do vapor",
         video: "Vaporesso Target Mini 2 - O mais versátil dos pequenos!",
         link: "https://www.youtube.com/watch?v=_ZQzb5uBtmc"
-    },
-    {
-        youtuber: "Zona do vapor",
-        video: "Voopoo Drag Nano Pod - O mais estiloso dos pods!",
-        link: "https://www.youtube.com/watch?v=CopaBzBfNBQ"
     },
     {
         youtuber: "Edu Vapor",
