@@ -19,7 +19,7 @@
         :items="fabricantes"
         :search="buscar"
         
-      ><template v-slot:item.site="item">
+      ><template v-slot:item.url_site="item">
         <v-icon
           @click="irSite(item.value)"
         >
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { fabricantes } from "../api/fabricantes";
+import { mapGetters, mapActions } from 'vuex'
 export default {
 data() {
   return {
@@ -46,12 +46,17 @@ data() {
         },
         { text: 'Estado', value: 'estado' },
         { text: 'Qnt de Juice', value: 'quantidadeJuice' },
-        { text: 'nada', value: 'nada' },
-        { text: 'Acessar Site', value: 'site', sortable: false, align: 'center' },
+
+        { text: 'Acessar Site', value: 'url_site', sortable: false, align: 'center' },
         
       ],
-      fabricantes: fabricantes,
+      fabricantes: [],
+      alo: []
   };
+  },
+
+  computed: {
+    ...mapGetters(['getTodosFabricantesAtivos'])
   },
 
   methods: {
@@ -59,8 +64,12 @@ data() {
         if (!url){
             alert("Fabricante não possui site")
         } else { window.open(url) }
-      }
-  }
+      },
+  },
+
+  created() {
+    this.$store.dispatch('consultarFabricantesAtivos').then(() => {this.fabricantes = this.getTodosFabricantesAtivos})
+  },
 }
 </script>
 

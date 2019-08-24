@@ -1,13 +1,13 @@
 <template>
     <v-container fluid grid-list-xl text-xs-center class="mt-1 pt-5">
-        <v-layout row wrap>
-          <v-flex xl4 lg4 md6 sm6 xs12 offset-xs4>
+        <v-layout row wrap justify-center>
+          <v-flex xl4 lg6 md12 sm12 xs12>
             <v-card color="white" class="ma-5 pa-1">
-                <v-card-title>Logar</v-card-title>
-              <v-form ref="form" v-model="valid" lazy-validation @submit.prevent="login" class="ma-4 pa-2">
-                <v-text-field v-model="usuario" placeholder="" label="Usuario" required :append-icon="'mdi-account-box'"></v-text-field>
-                <v-text-field v-model="senha" placeholder="" label="Senha" required :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'" :type="show ? 'text' : 'password'" class="input-group--focused" @click:append="show = !show"></v-text-field>
-                <v-btn type="submit" color="primary" large block class="mt-5 elevation-0"> Login</v-btn>
+                <v-card-title>Fazer login</v-card-title>
+              <v-form ref="form" v-model="valid" lazy-validation class="ma-4 pa-2">
+                <v-text-field v-model="email" placeholder="" label="E-mail" required :append-icon="'mdi-account-box'" :rules='emailRules'></v-text-field>
+                <v-text-field v-model="senha" placeholder="" label="Senha" required  :rules='senhaRules' :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'" :type="show ? 'text' : 'password'" class="input-group--focused" @click:append="show = !show"></v-text-field>
+                <v-btn type="submit" color="primary" large block class="mt-5 elevation-0" @click="logar">Login</v-btn>
               </v-form>
             </v-card>
           </v-flex>
@@ -19,16 +19,48 @@
 export default {
 data() {
     return {
-      usuario: "",
+      email: "",
       senha: "",
-      account: "",
-      valid: true,
+      valid: false,
       show: false,
+      emailRules: [
+          v => !!v || 'E-mail obrigatório',
+          v => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail inválido'
+        ],
+      senhaRules: [v => !!v || 'Senha obrigatória']
 
     };
     },
 
     methods: {
+      
+      logar() { 
+        if (this.$refs.form.validate()) {
+
+          const dados = {
+            email: this.email,
+            senha: this.senha
+          }
+          this.$store.dispatch('fazerLogin', dados)
+            .then(resultado => {
+              switch (resultado.erro) {
+                case 1:
+                  console.log('usuario não encontrado')
+                  break;
+                case 2: 
+                  console.log('usuario não está ativo')
+                  break; 
+                case 3: 
+                  console.log('senha invalida!')
+              }
+              if(resultado._id){
+                console.log('logado com sucesso!')
+              }
+            })
+        }
+      },
+
+
     }
 }
 </script>
