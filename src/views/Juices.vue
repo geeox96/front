@@ -40,8 +40,8 @@
 </template>
 
 <script>
-import { juices } from "../api/juices";
 import DetalhesJuice from "../components/detalhes-juice";
+import { mapGetters } from 'vuex';
 
 export default {
   components: {
@@ -50,15 +50,19 @@ export default {
 
     data() {
     return {
-      juices: juices,
+      juices: [],
       overlay: false,
       detalheJuice: null,
       dialogDetalheDoJuice: false,
     };
   },
 
+  computed: {
+    ...mapGetters(['getTodosLiquidosAtivos'])
+  },
+
   mounted() {
-    
+    this.juices = this.getTodosLiquidosAtivos
   },
 
   methods: {

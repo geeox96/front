@@ -11,9 +11,6 @@
     <v-btn v-if='logado' fab append class="elevation-0" @click="abrirPainel" icon large>
       <v-icon>mdi-account-box</v-icon>
     </v-btn>
-     <v-btn v-if='logado' fab append class="elevation-0" @click="deslogar" icon large>
-      <v-icon >mdi-exit-run</v-icon>
-    </v-btn>
   </v-app-bar>
 </template>
 

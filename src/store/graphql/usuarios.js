@@ -10,3 +10,12 @@ export const logarGQL = (input) => {
         }`
     }).then((res) => (res.data.logar))
 }
+
+export const consultarUsuariosGQL = () => {
+    return apolloClient.query({
+        query: gql`query
+        {
+            consultarUsuarios{_id nome ativo data_nascimento tipo_conta email}
+        }`
+    }).then((res) => (res.data.consultarUsuarios))
+}

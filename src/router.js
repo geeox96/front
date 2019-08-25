@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import jwt from 'jsonwebtoken'
+import { networkInterfaces } from 'os';
 
 Vue.use(Router)
 
@@ -8,15 +9,28 @@ const aut = (to, from, next) => {
   const token = localStorage.getItem('token')
 
   if(token) {
-    console.log('tem token')
     const nivel = jwt.verify(token, process.env.VUE_APP_SECRET)
-    console.log('nivel', nivel)
-    next()
-  //   if(to.meta.permissao === 'deslogado') {
-  // }
+    
+    if(to.meta.permissao === 'deslogado') {
+      next('/painel')
+    }
+
+    if(to.meta.permissao === 'admin'){ if(nivel.tipo_conta === 400){ next() } else { next('/') } }
+
+    if(to.meta.permissao === 'usuario') {
+      if(nivel.ativo) {
+        next()
+      } else {
+        next('/login')
+      }
+    }
+    
   } else {
-    console.log('não tem token')
-  next()
+    if(to.meta.permissao === 'deslogado'){
+      next()
+    } else {
+      next('/login')
+    }
   }
   
 }
@@ -70,6 +84,15 @@ export default new Router({
       beforeEnter: aut,
       meta: {
         permissao: 'usuario'
+      }
+    },
+    {
+      path: '/adminvapor',
+      name: 'AdministracaoVapor',
+      component: () => import('./views/adminvapor.vue'),
+      beforeEnter: aut,
+      meta: {
+        permissao: 'admin'
       }
     }
   ]
