@@ -34,11 +34,8 @@
       </tbody>
     </v-simple-table>
 </v-flex>
-<v-btn @click="chamarLista">ALO</v-btn>
-<span>{{arrayVideo}}</span>
-
 <v-flex xl4>
- <v-simple-table class="primary" height="300" dark fixed-header>
+  <v-simple-table class="primary" height="300" dark fixed-header>
       <thead>
         <tr>
           <th class="text-left">Fabricante</th>
@@ -113,7 +110,11 @@ export default {
             .catch((error) => console.log(error))
             return videos
       },
-  }
+  },
+
+  created() {
+    console.log(process.env)
+  },
 
 }
 </script>

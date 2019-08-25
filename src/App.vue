@@ -3,8 +3,11 @@
     <inicio-menu-lateral app/>
   <v-content>
     <inicio-toolbar app/>
+    <snackbar app/>
     <v-container fluid>
-      <router-view></router-view>
+      
+      <router-view>
+      </router-view>
     </v-container>
   </v-content>
   </v-app>
@@ -13,14 +16,15 @@
 <script>
 import InicioToolbar from './components/inicio-toolbar';
 import InicioMenuLateral from './components/inicio-menu-lateral'
+import Snackbar from './components/snackbar'
 
 export default {
   components: {
     InicioToolbar,
-    InicioMenuLateral    
+    InicioMenuLateral,
+    Snackbar 
   },
   data: () => ({
-    //
   }),
 };
 </script>

@@ -43,18 +43,18 @@ data() {
           }
           this.$store.dispatch('fazerLogin', dados)
             .then(resultado => {
-              switch (resultado.erro) {
-                case 1:
-                  console.log('usuario não encontrado')
-                  break;
-                case 2: 
-                  console.log('usuario não está ativo')
-                  break; 
-                case 3: 
-                  console.log('senha invalida!')
-              }
-              if(resultado._id){
-                console.log('logado com sucesso!')
+              switch (resultado) {
+                case "1":
+                  this.$store.dispatch("chamarSnack", {texto: "Usuario não existente 🥺 cadastre-se para logar!", cor: "red", tempo: 4000} )
+                  break
+                case "2": 
+                  this.$store.dispatch("chamarSnack", {texto: "Usuario Desativado", cor: "red", tempo: 4000} )
+                  break
+                case "3": 
+                  this.$store.dispatch("chamarSnack", {texto: "Senha incorreta 😕", cor: "red", tempo: 4000} )
+                  break
+                default:
+                  this.$router.push({ name: "Painel" });
               }
             })
         }

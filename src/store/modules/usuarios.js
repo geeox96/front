@@ -2,7 +2,7 @@ import { logarGQL } from '../graphql/usuarios'
 
 export default {
     state: {
-        usuario: {}
+        usuario: {},
     },
     getters: {
         
@@ -11,19 +11,22 @@ export default {
         async fazerLogin({commit}, input) {
             return logarGQL(input).then(sucesso => {
                 switch (sucesso) {
-                    case "1":
-                        
-                        break;
-                
+                    case '1':
+                        return sucesso
+                    case '2':
+                        return sucesso
+                    case '3':
+                        return sucesso
                     default:
+                        commit('setToken', sucesso)
                         break;
                 }
             })
         }
     },
     mutations: {
-        setUsuario(usuario) {
-            console.log('logou', usuario)
+        setToken(state, token) {
+            localStorage.setItem('token', token) 
         }
     }
 }

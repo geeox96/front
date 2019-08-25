@@ -6,14 +6,7 @@ export const logarGQL = (input) => {
     return apolloClient.query({
         query: gql`query
         {
-            logar(input: {email: "${input.email}" senha: "${input.senha}" } ){
-                _id
-                email
-                tipo_conta
-                ativo
-                token
-                erro
-            }
+            logar(input: {email: "${input.email}" senha: "${input.senha}" } )
         }`
     }).then((res) => (res.data.logar))
 }
