@@ -1,6 +1,6 @@
 <template>
   <v-container fluid grid-list-xl text-xs-center>
-    <detalhes-juice :abrir="dialogDetalheDoJuice" :liquido="detalheJuice" @fechar="fechaDialogDetalhe"/>
+    <detalhes-juice v-if="dialogDetalheDoJuice" :abrir="dialogDetalheDoJuice" :liquido="detalheJuice" @fechar="fechaDialogDetalhe"/>
       <v-layout justify-center row wrap>
         <v-flex xl2 lg3 md3 sm6 xs12 v-for="liquido in juices" :key="liquido.id">
           <v-hover 
@@ -40,8 +40,8 @@
 </template>
 
 <script>
-import { juices } from "../api/juices";
 import DetalhesJuice from "../components/detalhes-juice";
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   components: {
@@ -50,15 +50,20 @@ export default {
 
     data() {
     return {
-      juices: juices,
+      juices: [],
       overlay: false,
       detalheJuice: null,
       dialogDetalheDoJuice: false,
     };
   },
 
+  computed: {
+    ...mapGetters(['getTodosLiquidosAtivos'])
+  },
+
   mounted() {
-    
+    this.$store.dispatch('consultarLiquidosAtivos').then(() => this.juices = this.getTodosLiquidosAtivos)
+    this.juices = this.getTodosLiquidosAtivos
   },
 
   methods: {

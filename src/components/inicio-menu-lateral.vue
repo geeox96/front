@@ -20,6 +20,7 @@
       <v-list-item-title class="ml-5">Classificados Vape</v-list-item-title>
     </v-list-item>
   </v-navigation-drawer>
+  
 </template>
 
 <script>

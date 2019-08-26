@@ -5,11 +5,6 @@
       <v-card-text class="headline text-center">{{liquido.nome}}</v-card-text>
       <v-divider />
       <v-card-actions>
-        <v-flex>
-          <v-img
-        src="'liquido.img'"
-      >{{liquido.img}}</v-img>
-        </v-flex>
       <v-btn color="green darken-1" text @click="fechaDialog">Fechar</v-btn>
       </v-card-actions>
     </v-card>
