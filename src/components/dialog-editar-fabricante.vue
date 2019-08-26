@@ -64,7 +64,7 @@ props: {
             const dados = {
               _id: this.editFabricante._id,
               nome: this.editFabricante.nome,
-              liquidos_id: this.editFabricante.liquidos_id,
+              liquido_id: this.editFabricante.liquido_id,
               descricao: this.editFabricante.descricao,
               cidade: this.editFabricante.cidade,
               estado: this.editFabricante.estado,

@@ -1,6 +1,7 @@
 <template>
   <v-container fluid grid-list-xl text-xs-center>
-      <dialog-novo-fabricante :abrir="dialogNovoFabricante" @fechar="dialogNovoFabricante = false" />
+      <dialog-novo-fabricante v-if="dialogNovoFabricante" :abrir="dialogNovoFabricante" @fechar="dialogNovoFabricante = false" />
+      <dialog-novo-liquido v-if="dialogNovoLiquido" :abrir="dialogNovoLiquido" @fechar="dialogNovoLiquido = false" />
       <dialog-editar-fabricante  v-if="dialogEditarFabricante" :abrir="dialogEditarFabricante" :fabricante="fabricanteEditar" @fechar="fecharEditarFabricante" />
       <v-layout row wrap justify-center>
     <span class="display-3"> BEM VINDO ADMINISTRADOR </span>
@@ -13,12 +14,24 @@
 
       <v-tab>Gerenciar Juices</v-tab>
         <v-tab-item>
+          <v-flex>
+        <v-text-field
+        v-model="search1"
+        label="Buscar"
+        single-line
+      ></v-text-field>
+          </v-flex>
           <v-data-table
       :headers="juiceheaders"
       :items="juice"
       :items-per-page="7"
       class="elevation-0"
     ></v-data-table>
+      <template v-slot:item.action="item">
+        <v-btn @click='detalheLiquido(item.value)' fab small class="elevation-0"><v-icon>mdi-cake-variant</v-icon></v-btn>
+      </template>
+
+    <v-btn @click="dialogNovoLiquido = true" > CRIAR NOVO LIQUIDO </v-btn>
         </v-tab-item>
 
 
@@ -42,6 +55,10 @@
         
         <span v-if='item.value' class='green--text'>Ativado</span>
         <span v-if='!item.value'  class='red--text'>Desativado</span>
+      </template>
+      <template v-slot:item.marca="item">
+        
+        <span>{{item.value.nome}}</span>
       </template>
       <template v-slot:item.action="item">
         
@@ -166,7 +183,7 @@
           
         <v-btn @click='detalhesUsuario(item.item)' fab small class="elevation-0"><v-icon>mdi-cake-variant</v-icon></v-btn>
       </template>
-       </v-data-table>
+        </v-data-table>
         </v-tab-item>
 
     </v-tabs>
@@ -177,17 +194,20 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import dialogNovoFabricante from "../components/dialog-novo-fabricante";
+import dialogNovoLiquido from "../components/dialog-novo-liquido";
 import dialogEditarFabricante from "../components/dialog-editar-fabricante";
 
 export default {
   components: {
     "dialog-novo-fabricante": dialogNovoFabricante,
+    "dialog-novo-liquido": dialogNovoLiquido,
     "dialog-editar-fabricante": dialogEditarFabricante
   },
 
     data() {
         return {
         dialogNovoFabricante: false, 
+        dialogNovoLiquido: false,
         dialogEditarFabricante: false, 
         fabricanteEditar: {},
         search1: '',
@@ -196,17 +216,21 @@ export default {
         search4: '',
         search5: '',
         search6: '',
-            juiceheaders: [
+          juiceheaders: [
         {
           text: 'Nome',
           align: 'left',
           sortable: false,
           value: 'nome',
         },
-        { text: 'Marca', value: 'fabricante' }
+        { text: 'Marca', value: 'fabricante_id.nome', align: 'center' },
+        { text: 'Preço', value: 'valor', align: 'center' },
+        { text: 'Visitas', value: 'visitas', align: 'center' },
+        { text: 'Nota', value: 'nota', align: 'center' },
+        { text: 'Ações', value: 'action', align: 'right' }
         
       ],
-        juice: [],
+      juice: [],
 
       fabricanteheaders: [
         { text: 'Nome',align: 'left',value: 'nome'},
@@ -214,21 +238,21 @@ export default {
         { text: 'Ações', value: 'action', align: 'right' }
         
       ],
-       fabricante: [],
+      fabricante: [],
 
-       usuarioheaders: [
+      usuarioheaders: [
         { text: 'Nome', align: 'left', value: 'nome'},
         { text: 'Email', value: 'email', align: 'center' },
         { text: 'Tipo', value: 'tipo_conta', align: 'center' },
         { text: 'Ações', value: 'action', align: 'right' }
       ],
-       usuario: []
+      usuario: []
 
         }
     },
 
     computed: {
-        ...mapGetters(['getTodosFabricantes','getTodosUsuarios'])
+        ...mapGetters(['getTodosFabricantes','getTodosUsuarios', 'getTodosLiquidos'])
     },
 
     methods: {
@@ -238,7 +262,9 @@ export default {
 
             await this.$store.dispatch('consultarUsuarios')
               this.usuario = this.getTodosUsuarios.map(usuario => usuario)
-              
+
+              await this.$store.dispatch('consultarLiquidos')
+              this.juice = this.getTodosLiquidos.map(Liquido => Liquido)
         },
 
         detalhesFabricante(fabricanteselect) {
@@ -250,6 +276,7 @@ export default {
           await this.$store.dispatch('consultarFabricantes') 
               this.fabricante = this.getTodosFabricantes.map(fabricante => fabricante)
           this.dialogEditarFabricante = false
+
         },
 
         detalhesUsuario(alo) {
@@ -262,6 +289,7 @@ export default {
 
     created() {
       this.popularTables()
+      
     }
 
 }

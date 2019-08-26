@@ -56,7 +56,7 @@ export const editarFabricanteAdminGQL = (input) => {
                 nome:  "${input.nome}"
                 descricao:  "${input.descricao}"
                 cidade:  "${input.cidade}"
-                liquidos_id: "${input.liquidos_id}"
+                liquido_id: "${input.liquido_id}"
                 url_site:  "${input.url_site}"
                 url_insta: "${input.url_insta}"
                 url_face: "${input.url_face}"

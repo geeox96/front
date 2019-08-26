@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import jwt from 'jsonwebtoken'
-import { networkInterfaces } from 'os';
 
 Vue.use(Router)
 

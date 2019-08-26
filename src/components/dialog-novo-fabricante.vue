@@ -2,7 +2,7 @@
   <v-layout justify-center>
     <v-dialog v-model="abrir" persistent max-width="800" transition="dialog-bottom-transition">
     <v-card>
-      <v-card-title> Novo Fabricante</v-card-title>
+      <v-card-title>Novo fabricante</v-card-title>
         <v-flex xl12 lg12 md12 sm12 xs12>
               <v-form ref="form" v-model="valid" lazy-validation class="ma-4 pa-2">
                 <v-text-field v-model="nome" label="Nome" required :rules='rules' ></v-text-field>

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import fabricantes from './modules/fabricantes'
 import usuarios from './modules/usuarios'
+import liquidos from './modules/liquidos'
 
 Vue.use(Vuex)
 
@@ -9,7 +10,8 @@ export default new Vuex.Store({
   
   modules: {
     fabricantes,
-    usuarios
+    usuarios,
+    liquidos
   },
 
   state: {
