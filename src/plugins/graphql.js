@@ -7,7 +7,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 // Vue.use({
 //     install(Vue) {
         const httpLink = createHttpLink({
-            uri: 'http://52.70.198.116:3000/'
+            uri: 'http://localhost:4000/'
         })
 
         const authLink = setContext((_, { headers }) => {

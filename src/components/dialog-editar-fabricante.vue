@@ -55,7 +55,7 @@ props: {
 
       methods: {
         fechar() {
-          this.$emit('fechar')
+          this.$emit('fechar', 2)
         },
 
         Editar() {
@@ -75,7 +75,7 @@ props: {
             }
           this.$store.dispatch('editarFabricanteAdmin', dados)
             .then(() => { 
-              this.$emit('fechar')
+              this.$emit('fechar', 2)
             })
         }
         },

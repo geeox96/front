@@ -53,7 +53,7 @@ props: {
 
       methods: {
         fechar() {
-          this.$emit('fechar')
+          this.$emit('fechar', 1)
         },
 
         criar() {
@@ -69,7 +69,7 @@ props: {
                   url_face: this.url_face
           }
           this.$store.dispatch('criarFabricante', dados)
-            .then(() => { this.abrir = false })
+            .then(() => { this.$emit('fechar', 1) })
         }
         }
     },
