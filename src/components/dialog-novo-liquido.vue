@@ -69,9 +69,9 @@ props: {
       info: '',
       tag_id: '',
       fabricante_id: '',
-      pg: '',
-      vg: '',
-      valor: '',
+      pg: 0,
+      vg: 0,
+      valor: 0,
       rules: [
           v => !!v || 'Campo Obrigatorio'
       ]
@@ -84,7 +84,7 @@ props: {
 
       methods: {
         fechar() {
-          this.$emit('fechar')
+          this.$emit('fechar', 3)
         },
 
         criar() {
@@ -101,7 +101,7 @@ props: {
                   valor: parseFloat(this.valor),
           }
           this.$store.dispatch('criarLiquido', dados)
-            .then(() => { this.$emit('fechar') })
+            .then(() => { this.$emit('fechar', 3) })
         }
         }
     },

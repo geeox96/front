@@ -1,8 +1,10 @@
 <template>
   <v-container fluid grid-list-xl text-xs-center>
-      <dialog-novo-fabricante v-if="dialogNovoFabricante" :abrir="dialogNovoFabricante" @fechar="dialogNovoFabricante = false" />
-      <dialog-novo-liquido v-if="dialogNovoLiquido" :abrir="dialogNovoLiquido" @fechar="dialogNovoLiquido = false" />
-      <dialog-editar-fabricante  v-if="dialogEditarFabricante" :abrir="dialogEditarFabricante" :fabricante="fabricanteEditar" @fechar="fecharEditarFabricante" />
+      <dialog-novo-fabricante v-if="dialogNovoFabricante" :abrir="dialogNovoFabricante" @fechar="fecharDialog" />
+      <dialog-editar-fabricante  v-if="dialogEditarFabricante" :abrir="dialogEditarFabricante" :fabricante="fabricanteEditar" @fechar="fecharDialog" />
+      <dialog-novo-liquido v-if="dialogNovoLiquido" :abrir="dialogNovoLiquido" @fechar="fecharDialog" />
+      <dialog-editar-liquido  v-if="dialogEditarLiquido" :abrir="dialogEditarLiquido" :liquido="liquidoEditar" @fechar="fecharDialog" />
+      
       <v-layout row wrap justify-center>
     <span class="display-3"> BEM VINDO ADMINISTRADOR </span>
       </v-layout>
@@ -26,12 +28,13 @@
       :items="juice"
       :items-per-page="7"
       class="elevation-0"
-    ></v-data-table>
+    >
       <template v-slot:item.action="item">
-        <v-btn @click='detalheLiquido(item.value)' fab small class="elevation-0"><v-icon>mdi-cake-variant</v-icon></v-btn>
+        <v-btn @click='detalhesLiquido(item.item)' fab small class="elevation-0"><v-icon>mdi-cake-variant</v-icon></v-btn>
       </template>
-
+</v-data-table>
     <v-btn @click="dialogNovoLiquido = true" > CRIAR NOVO LIQUIDO </v-btn>
+    
         </v-tab-item>
 
 
@@ -196,12 +199,14 @@ import { mapActions, mapGetters } from 'vuex'
 import dialogNovoFabricante from "../components/dialog-novo-fabricante";
 import dialogNovoLiquido from "../components/dialog-novo-liquido";
 import dialogEditarFabricante from "../components/dialog-editar-fabricante";
+import dialogEditarLiquido from "../components/dialog-editar-liquido";
 
 export default {
   components: {
     "dialog-novo-fabricante": dialogNovoFabricante,
     "dialog-novo-liquido": dialogNovoLiquido,
-    "dialog-editar-fabricante": dialogEditarFabricante
+    "dialog-editar-fabricante": dialogEditarFabricante,
+    "dialog-editar-liquido": dialogEditarLiquido
   },
 
     data() {
@@ -209,7 +214,9 @@ export default {
         dialogNovoFabricante: false, 
         dialogNovoLiquido: false,
         dialogEditarFabricante: false, 
+        dialogEditarLiquido: false, 
         fabricanteEditar: {},
+        liquidoEditar: {},
         search1: '',
         search2: '',
         search3: '',
@@ -267,23 +274,47 @@ export default {
               this.juice = this.getTodosLiquidos.map(Liquido => Liquido)
         },
 
-        detalhesFabricante(fabricanteselect) {
-            this.fabricanteEditar = fabricanteselect
+        detalhesFabricante(fabricante) {
+            this.fabricanteEditar = fabricante
             this.dialogEditarFabricante = true
         },
 
-        async fecharEditarFabricante() {
-          await this.$store.dispatch('consultarFabricantes') 
-              this.fabricante = this.getTodosFabricantes.map(fabricante => fabricante)
-          this.dialogEditarFabricante = false
-
-        },
-
-        detalhesUsuario(alo) {
-            console.log(alo)
+        detalhesUsuario(usuario) {
+            console.log(usuario)
             
         },
 
+        detalhesLiquido(liquido) {
+          console.log(liquido)
+          this.liquidoEditar = liquido
+          this.dialogEditarLiquido = true            
+        },
+
+        async fecharDialog(janela) {
+          switch (janela) {
+            case 1:
+              await this.$store.dispatch('consultarFabricantes') 
+              this.fabricante = this.getTodosFabricantes.map(fabricante => fabricante)
+              this.dialogNovoFabricante = false
+              break
+            case 2:
+              await this.$store.dispatch('consultarFabricantes') 
+              this.fabricante = this.getTodosFabricantes.map(fabricante => fabricante)
+              this.dialogEditarFabricante = false
+              break;
+            case 3:
+              await this.$store.dispatch('consultarLiquidos') 
+              this.juice = this.getTodosLiquidos.map(liquido => liquido)
+              this.dialogNovoLiquido = false
+              break;
+            case 4:
+              await this.$store.dispatch('consultarLiquidos') 
+              this.juice = this.getTodosLiquidos.map(liquido => liquido)
+              this.dialogEditarLiquido = false
+              break;
+          }
+
+        },
         
     },
 

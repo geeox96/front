@@ -17,7 +17,6 @@ export const novoLiquidoGQL = (input) => {
     }){
         _id
         nome
-        fabricante_id{_id nome}
         valor
         descricao
       }
@@ -41,4 +40,14 @@ export const consultarLiquidosAtivosGQL = () => {
         consultarLiquidosAtivos{_id nome img descricao info fabricante_id{ _id nome cidade estado } pg vg valor nota }
       }`
   }).then((res) => (res.data.consultarLiquidosAtivos))
+}
+
+export const deletarLiquidoAtivosGQL = (input) => {
+  console.log('aqui', input)
+  return apolloClient.mutate({
+    mutation: gql`mutation
+      {
+        deletarLiquido(input: {_id: "${input._id}"  fabricante_id: "${input.fabricante_id}" } )
+      }`
+  }).then((res) => (res.data.deletarLiquido))
 }

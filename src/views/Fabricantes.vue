@@ -25,6 +25,13 @@
         >
           mdi-open-in-new
         </v-icon>
+      </template>
+      <template v-slot:item.url_site="item">
+        <v-icon
+          @click="irSite(item.value)"
+        >
+          mdi-open-in-new
+        </v-icon>
       </template> </v-data-table>
     </v-card>
 </v-container>
