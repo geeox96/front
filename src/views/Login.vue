@@ -35,6 +35,7 @@ data() {
     methods: {
       
       logar() { 
+        console.log(SECRET_KEY)
         if (this.$refs.form.validate()) {
 
           const dados = {
