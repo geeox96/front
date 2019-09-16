@@ -112,7 +112,6 @@ props: {
               _id: this.editLiquido._id,
               fabricante_id: this.editLiquido.fabricante_id._id,
       }
-      console.log(dados)
       this.$store.dispatch('deletarLiquido', dados)
         .then(() => { this.$emit('fechar', 4) })
     },
