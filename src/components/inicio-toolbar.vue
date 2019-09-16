@@ -35,11 +35,6 @@ export default {
       this.$router.push({ name: "Painel" });
     },
 
-    async deslogar() {
-      localStorage.removeItem('token')
-      location.reload()
-    }
-
   },
   
   mounted() {

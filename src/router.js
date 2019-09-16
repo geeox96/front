@@ -1,66 +1,54 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import jwt from 'jsonwebtoken'
+import Vue from "vue";
+import Router from "vue-router";
+import usuario from "./store/modules/usuarios";
+import jwt from "jsonwebtoken";
 
-Vue.use(Router)
+Vue.use(Router);
 
-const aut = (to, from, next) => {
-  const token = localStorage.getItem('token')
-
-  if(token) {
-    const nivel = jwt.verify(token, process.env.VUE_APP_SECRET)
-    
-    if(to.meta.permissao === 'deslogado') {
-      next('/painel')
-    }
-
-    if(to.meta.permissao === 'admin'){ if(nivel.tipo_conta === 400){ next() } else { next('/') } }
-
-    if(to.meta.permissao === 'usuario') {
-      if(nivel.ativo) {
-        next()
-      } else {
-        next('/login')
-      }
-    }
-    
-  } else {
-    if(to.meta.permissao === 'deslogado'){
-      next()
-    } else {
-      next('/login')
-    }
-  }
-  
-}
-
-export default new Router({
+export const router = new Router({
   base: process.env.BASE_URL,
+  mode: "history",
   routes: [
     {
-      path: '/login',
-      name: 'Logar',
-      component: () => import('./views/Login.vue'),
-      beforeEnter: aut,
+      path: "/404",
+      name: "404",
+      component: () => import("./views/404.vue"),
       meta: {
-        permissao: 'deslogado'
+        permissao: "livre"
       }
     },
     {
-      path: '/',
-      name: 'Inicio',
-      component: () => import('./views/Inicio.vue')
+      path: "/login",
+      name: "Logar",
+      component: () => import("./views/Login.vue"),
+      meta: {
+        permissao: "deslogado"
+      }
     },
     {
-      path: '/juices',
-      name: 'Juices',
-      component: () => import('./views/Juices.vue')
+      path: "/",
+      name: "Inicio",
+      component: () => import("./views/Inicio.vue"),
+      meta: {
+        permissao: "livre"
+      }
     },
     {
-      path: '/fabricantes',
-      name: 'Fabricantes',
-      component: () => import('./views/Fabricantes.vue')
-    },  
+      path: "/juices",
+      name: "Juices",
+      component: () => import("./views/Juices.vue"),
+      meta: {
+        permissao: "livre"
+      }
+    },
+    {
+      path: "/fabricantes",
+      name: "Fabricantes",
+      component: () => import("./views/Fabricantes.vue"),
+      meta: {
+        permissao: "livre"
+      }
+    },
     // {
     //   path: '/fornecedores',
     //   name: 'Fabricantes',
@@ -77,22 +65,43 @@ export default new Router({
     //   component: () => import('./views/Fabricantes.vue')
     // },
     {
-      path: '/painel',
-      name: 'Painel',
-      component: () => import('./views/painel/index.vue'),
-      beforeEnter: aut,
+      path: "/painel",
+      name: "Painel",
+      component: () => import("./views/painel/index.vue"),
       meta: {
-        permissao: 'usuario'
+        permissao: "usuario"
       }
     },
+    // {
+    //   path: '/painel/fabricante',
+    //   name: 'PainelFabricante',
+    //   component: () => import('./views/fabricante/index.vue'),
+    //   meta: {
+    //     permissao: 'fabricante'
+    //   }
+    // },
     {
-      path: '/adminvapor',
-      name: 'AdministracaoVapor',
-      component: () => import('./views/adminvapor.vue'),
-      beforeEnter: aut,
+      path: "/adminvapor",
+      name: "AdministracaoVapor",
+      component: () => import("./views/adminvapor.vue"),
       meta: {
-        permissao: 'admin'
+        permissao: "admin"
       }
     }
   ]
-})
+});
+
+router.beforeEach((to, from, next) => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    const dadosToken = jwt.decode(token);
+    const nivel = dadosToken.tipo_conta;
+    if (nivel === 400) next();
+    else if (to.meta.permissao === "deslogado") next("/painel");
+    else if (to.meta.permissao === "usuario" && nivel > 109) next();
+  } else {
+    if (to.meta.permissao === "livre") next();
+    else if (!to.meta.permissao) next("/404");
+    else if (to.meta.permissao === "deslogado") next();
+  }
+});

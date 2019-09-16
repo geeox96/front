@@ -2,7 +2,6 @@ import { apolloClient } from '../../plugins/graphql'
 import gql from 'graphql-tag';
 
 export const novoLiquidoGQL = (input) => {
-  console.log(input)
   return apolloClient.mutate({
     mutation: gql`mutation{
       novoLiquido(input:{
@@ -43,7 +42,6 @@ export const consultarLiquidosAtivosGQL = () => {
 }
 
 export const deletarLiquidoAtivosGQL = (input) => {
-  console.log('aqui', input)
   return apolloClient.mutate({
     mutation: gql`mutation
       {

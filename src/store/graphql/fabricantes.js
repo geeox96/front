@@ -1,30 +1,76 @@
-import { apolloClient } from '../../plugins/graphql'
-import gql from 'graphql-tag';
-
+import { apolloClient } from "../../plugins/graphql";
+import gql from "graphql-tag";
 
 export const consultarFabricantesAtivosGQL = () => {
-    return apolloClient.query({
-        query: gql`query{
-            consultarFabricantesAtivos { 
-                _id nome ativo descricao cidade estado url_insta url_site url_face
+  return apolloClient
+    .query({
+      query: gql`
+        query {
+          consultarFabricantesAtivos {
+            _id
+            nome
+            ativo
+            descricao
+            liquido_id {
+              _id
+              nome
+              img
+              descricao
+              info
+              link
+              pg
+              vg
+              valor
             }
-        }`
-    }).then((res) => (res.data.consultarFabricantesAtivos))
-}
+            cidade
+            estado
+            url_insta
+            url_site
+            url_face
+          }
+        }
+      `
+    })
+    .then(res => res.data.consultarFabricantesAtivos);
+};
 
 export const consultarFabricantesGQL = () => {
-    return apolloClient.query({
-        query: gql`query{
-            consultarFabricantes { 
-                _id nome ativo descricao cidade estado url_insta url_site url_face
+  return apolloClient
+    .query({
+      query: gql`
+        query {
+          consultarFabricantes {
+            _id
+            nome
+            ativo
+            descricao
+            liquido_id {
+              _id
+              nome
+              img
+              descricao
+              info
+              link
+              pg
+              vg
+              valor
             }
-        }`
-    }).then((res) => res.data.consultarFabricantes)
-}
+            cidade
+            estado
+            url_insta
+            url_site
+            url_face
+          }
+        }
+      `
+    })
+    .then(res => res.data.consultarFabricantes);
+};
 
-export const novoFabricanteGQL = (input) => {
-    return apolloClient.mutate({
-        mutation: gql`mutation{
+export const novoFabricanteGQL = input => {
+  return apolloClient
+    .mutate({
+      mutation: gql`mutation{
             novoFabricante(input:{
                 nome:  "${input.nome}"
                 descricao:  "${input.descricao}"
@@ -45,12 +91,14 @@ export const novoFabricanteGQL = (input) => {
                 ativo
             }
         }`
-    }).then((res) => res.data.novoFabricante)
-}
+    })
+    .then(res => res.data.novoFabricante);
+};
 
-export const editarFabricanteAdminGQL = (input) => {
-    return apolloClient.mutate({
-        mutation: gql`mutation{
+export const editarFabricanteAdminGQL = input => {
+  return apolloClient
+    .mutate({
+      mutation: gql`mutation{
             editarFabricanteAdmin(input:{
                 _id: "${input._id}"
                 nome:  "${input.nome}"
@@ -74,5 +122,6 @@ export const editarFabricanteAdminGQL = (input) => {
                 ativo
             }
         }`
-    }).then((res) => res.data.editarFabricanteAdmin)
-}
+    })
+    .then(res => res.data.editarFabricanteAdmin);
+};

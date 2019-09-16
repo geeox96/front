@@ -49,8 +49,8 @@ props: {
       }
   },
 
-  mounted() {
-    this.preencherDados()
+  async mounted() {
+    await this.preencherDados()
   },
 
       methods: {
