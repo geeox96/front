@@ -51,7 +51,6 @@ props: {
 
   async mounted() {
     await this.preencherDados()
-    console.log(this.editFabricante.liquido_id)
   },
 
       methods: {

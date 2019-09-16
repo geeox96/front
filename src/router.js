@@ -92,12 +92,10 @@ export const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-  console.log("ae");
-
   const token = localStorage.getItem("token");
-  const dadosToken = jwt.decode(token);
-  const nivel = dadosToken.tipo_conta;
   if (token) {
+    const dadosToken = jwt.decode(token);
+    const nivel = dadosToken.tipo_conta;
     if (nivel === 400) next();
     else if (to.meta.permissao === "deslogado") next("/painel");
     else if (to.meta.permissao === "usuario" && nivel > 109) next();
