@@ -23,7 +23,7 @@
               
               <v-card-title class="infolay-nome">{{liquido.nome}}</v-card-title>
               <v-card-text class="infolay-fabricante">Por: {{liquido.fabricante}}</v-card-text>
-              <v-card-text class="infolay">{{liquido.descricao}}</v-card-text>
+          <v-card-text class="infolay">{{liquido.descricao}}</v-card-text>
               <v-card-actions>R$: {{liquido.valor}}</v-card-actions>
               <v-rating v-model="liquido.nota"
         background-color="orange lighten-3"

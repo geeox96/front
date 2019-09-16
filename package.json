@@ -20,7 +20,8 @@
     "jsonwebtoken": "^8.5.1",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
-    "vuetify": "^2.0.10",
+    "vue-video-section": "^1.0.2",
+    "vuetify": "^2.0.17",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

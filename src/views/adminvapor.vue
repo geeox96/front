@@ -196,10 +196,10 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import dialogNovoFabricante from "../components/dialog-novo-fabricante";
-import dialogNovoLiquido from "../components/dialog-novo-liquido";
-import dialogEditarFabricante from "../components/dialog-editar-fabricante";
-import dialogEditarLiquido from "../components/dialog-editar-liquido";
+import dialogNovoFabricante from "../components/administracao/dialog-novo-fabricante";
+import dialogNovoLiquido from "../components/administracao/dialog-novo-liquido";
+import dialogEditarFabricante from "../components/administracao/dialog-editar-fabricante";
+import dialogEditarLiquido from "../components/administracao/dialog-editar-liquido";
 
 export default {
   components: {
@@ -320,7 +320,7 @@ export default {
 
     created() {
       this.popularTables()
-      
+      console.log("entrou")
     }
 
 }

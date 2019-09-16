@@ -1,40 +1,49 @@
 <template>
-<v-container>
-  <v-card color='primary' dark>
-      <v-card-title >
-        Fabricantes de e-liquido
-        
-        <v-spacer></v-spacer>
-        <v-text-field
-          v-model="buscar"
-          append-icon="mdi-database-search"
-          label="Buscar"
-          single-line
-          hide-details
-        ></v-text-field>
-      </v-card-title>
-      <v-data-table
-      no-results-text="Nenhum fabricante encontrado"
-        :headers="headers"
+<v-container fluid>
+      <v-data-iterator
         :items="fabricantes"
-        :search="buscar"
-        
-      ><template v-slot:item.url_site="item">
-        <v-icon
-          @click="irSite(item.value)"
-        >
-          mdi-open-in-new
-        </v-icon>
-      </template>
-      <template v-slot:item.url_site="item">
-        <v-icon
-          @click="irSite(item.value)"
-        >
-          mdi-open-in-new
-        </v-icon>
-      </template> </v-data-table>
-    </v-card>
-</v-container>
+        :items-per-page.sync="itemsPerPage"
+        :footer-props="{ itemsPerPageOptions }"
+      >
+        <template v-slot:default="props">
+          <v-row>
+            <v-col
+              v-for="item in props.items"
+              :key="item.name"
+              cols="12"
+              sm="6"
+              md="4"
+              lg="3"
+            >
+              <v-card color='primary' dark>
+                <v-card-title><h4>{{ item.nome }}</h4></v-card-title>
+                <v-divider></v-divider>
+                <v-list>
+                  <v-list-item>
+                    <v-list-item-content>Estado:</v-list-item-content>
+                    <v-list-item-content class="align-center">{{ item.estado }}</v-list-item-content>
+                  </v-list-item>
+                  <v-list-item>
+                    <v-list-item-content>Qnt de Juice:</v-list-item-content>
+                    <v-list-item-content class="align-end">{{ item.quantidadeJuice }}</v-list-item-content>
+                  </v-list-item>
+                  <v-list-item>
+                    <v-list-item-content>Acessar Site:</v-list-item-content>
+                    <v-list-item-content class="align-end">
+                      <v-icon
+                        @click="irSite(item.url_site)"
+                      >mdi-open-in-new</v-icon>
+                  </v-list-item-content>
+                  </v-list-item>
+                  
+                </v-list>
+                <v-btn small append class='elevation-0' width="500" dark>Mais detalhes</v-btn>
+              </v-card>
+            </v-col>
+          </v-row>
+        </template>
+      </v-data-iterator>
+    </v-container>
 
 </template>
 
@@ -43,6 +52,8 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
 data() {
   return {
+      itemsPerPageOptions: [4, 8, 12],
+      itemsPerPage: 4,
       buscar: '',
       headers: [
         {

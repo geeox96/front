@@ -7,7 +7,7 @@
               <v-form ref="form" v-model="valid" lazy-validation class="ma-4 pa-2">
                 <v-text-field v-model="email" placeholder="" label="E-mail" required :append-icon="'mdi-account-box'" :rules='emailRules'></v-text-field>
                 <v-text-field v-model="senha" placeholder="" label="Senha" required  :rules='senhaRules' :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'" :type="show ? 'text' : 'password'" class="input-group--focused" @click:append="show = !show"></v-text-field>
-                <v-btn type="submit" color="primary" large block class="mt-5 elevation-0" @click="logar">Login</v-btn>
+                <v-btn color="primary" large block class="mt-5 elevation-0" @click="logar">Login</v-btn>
               </v-form>
             </v-card>
           </v-flex>
@@ -34,23 +34,22 @@ data() {
 
     methods: {
       
-      logar() { 
+      async logar() { 
         if (this.$refs.form.validate()) {
-
           const dados = {
             email: this.email,
             senha: this.senha
           }
-          this.$store.dispatch('fazerLogin', dados)
+          await this.$store.dispatch('fazerLogin', dados)
             .then(resultado => {
               switch (resultado) {
-                case "1":
+                case 1:
                   this.$store.dispatch("chamarSnack", {texto: "Usuario não existente 🥺 cadastre-se para logar!", cor: "red", tempo: 4000} )
                   break
-                case "2": 
+                case 2: 
                   this.$store.dispatch("chamarSnack", {texto: "Usuario Desativado", cor: "red", tempo: 4000} )
                   break
-                case "3": 
+                case 3: 
                   this.$store.dispatch("chamarSnack", {texto: "Senha incorreta 😕", cor: "red", tempo: 4000} )
                   break
                 default:
