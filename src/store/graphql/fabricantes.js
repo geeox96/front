@@ -11,6 +11,7 @@ export const consultarFabricantesAtivosGQL = () => {
             nome
             ativo
             descricao
+            img
             liquido_id {
               _id
               nome
@@ -44,6 +45,7 @@ export const consultarFabricantesGQL = () => {
             nome
             ativo
             descricao
+            img
             liquido_id {
               _id
               nome
@@ -103,6 +105,7 @@ export const editarFabricanteAdminGQL = input => {
                 _id: "${input._id}"
                 nome:  "${input.nome}"
                 descricao:  "${input.descricao}"
+                img:  "${input.img}"
                 cidade:  "${input.cidade}"
                 liquido_id: "${input.liquido_id}"
                 url_site:  "${input.url_site}"
@@ -114,6 +117,7 @@ export const editarFabricanteAdminGQL = input => {
                 _id
                 nome
                 descricao
+                img
                 cidade
                 estado
                 url_site
