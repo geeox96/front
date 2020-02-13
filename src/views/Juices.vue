@@ -1,12 +1,5 @@
 <template>
-  <v-container fluid grid-list-xl text-xs-center>
-    <detalhes-juice
-      v-if="dialogDetalheDoJuice"
-      :abrir="dialogDetalheDoJuice"
-      :liquido="detalheJuice"
-      @fechar="fechaDialogDetalhe"
-    />
-    <v-layout justify-center row wrap>
+    <!-- <v-layout justify-center row wrap>
       <v-flex xl2 lg3 md3 sm6 xs12 v-for="liquido in juices" :key="liquido.id">
         <v-hover :open-delay="300">
           <template v-slot:default="{ hover }">
@@ -31,7 +24,14 @@
           </template>
         </v-hover>
       </v-flex>
-    </v-layout>
+    </v-layout> -->
+    <v-container fluid grid-list-xl text-xs-center>
+    <detalhes-juice
+      v-if="dialogDetalheDoJuice"
+      :abrir="dialogDetalheDoJuice"
+      :liquido="detalheJuice"
+      @fechar="fechaDialogDetalhe"
+    />
   </v-container>
 </template>
 

@@ -12,6 +12,11 @@ export const consultarFabricantesAtivosGQL = () => {
             ativo
             descricao
             img
+            ratio
+            whatsapp
+            telefone
+            email_contato
+            premium
             liquido_id {
               _id
               nome
@@ -46,6 +51,11 @@ export const consultarFabricantesGQL = () => {
             ativo
             descricao
             img
+            ratio
+            whatsapp
+            telefone
+            email_contato
+            premium
             liquido_id {
               _id
               nome
@@ -77,6 +87,9 @@ export const novoFabricanteGQL = input => {
                 nome:  "${input.nome}"
                 descricao:  "${input.descricao}"
                 cidade:  "${input.cidade}"
+                telefone:  "${input.telefone}"
+                whatsapp:  "${input.whatsapp}"
+                email_contato:  "${input.email_contato}"
                 url_site:  "${input.url_site}"
                 url_insta: "${input.url_insta}"
                 url_face: "${input.url_face}"
@@ -85,6 +98,9 @@ export const novoFabricanteGQL = input => {
                 _id
                 nome
                 descricao
+                telefone
+                whatsapp
+                email_contato
                 cidade
                 estado
                 url_site
@@ -107,18 +123,23 @@ export const editarFabricanteAdminGQL = input => {
                 descricao:  "${input.descricao}"
                 img:  "${input.img}"
                 cidade:  "${input.cidade}"
+                telefone:  "${input.telefone}"
+                whatsapp:  "${input.whatsapp}"
+                email_contato:  "${input.email_contato}"
                 liquido_id: "${input.liquido_id}"
                 url_site:  "${input.url_site}"
                 url_insta: "${input.url_insta}"
                 url_face: "${input.url_face}"
                 estado:  "${input.estado}"
                 ativo: ${input.ativo}
+                premium: ${input.premium}
             }){
                 _id
                 nome
                 descricao
                 img
                 cidade
+                email_contato
                 estado
                 url_site
                 url_insta

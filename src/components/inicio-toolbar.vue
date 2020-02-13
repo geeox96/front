@@ -34,7 +34,7 @@
       icon
       large
     >
-      <v-icon>mdi-account-box</v-icon>
+      <v-icon color="text">mdi-account-box</v-icon>
     </v-btn>
   </v-app-bar>
 </template>
