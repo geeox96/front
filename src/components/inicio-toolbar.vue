@@ -1,15 +1,40 @@
 <template>
-  <v-app-bar color="primary" dark>
-    <v-btn fab append class="elevation-0 hidden-lg-and-up" @click="abrirMenu" icon large>
+  <v-app-bar color="primary">
+    <v-btn
+      fab
+      append
+      class="elevation-0 hidden-lg-and-up"
+      @click="abrirMenu"
+      icon
+      large
+    >
       <v-icon>mdi-menu</v-icon>
     </v-btn>
-    <v-toolbar-title>Vapor Center</v-toolbar-title>
+    <v-toolbar-title
+      ><span class="display-2 text--text">Vapor Center</span></v-toolbar-title
+    >
     <v-spacer />
-    <v-btn v-if='!logado' fab append class="elevation-0" @click="fazerLogin" icon large>
+    <v-btn
+      v-if="!logado"
+      fab
+      append
+      class="elevation-0"
+      @click="fazerLogin"
+      icon
+      large
+    >
       <v-icon>mdi-account-box</v-icon>
     </v-btn>
-    <v-btn v-if='logado' fab append class="elevation-0" @click="abrirPainel" icon large>
-      <v-icon>mdi-account-box</v-icon>
+    <v-btn
+      v-if="logado"
+      fab
+      append
+      class="elevation-0"
+      @click="abrirPainel"
+      icon
+      large
+    >
+      <v-icon color="text">mdi-account-box</v-icon>
     </v-btn>
   </v-app-bar>
 </template>
@@ -33,19 +58,17 @@ export default {
 
     abrirPainel() {
       this.$router.push({ name: "Painel" });
-    },
-
-  },
-  
-  mounted() {
-    if(localStorage.getItem('token')){
-      this.logado = true
-    } else {
-      this.logado = false
     }
   },
+
+  mounted() {
+    if (localStorage.getItem("token")) {
+      this.logado = true;
+    } else {
+      this.logado = false;
+    }
+  }
 };
 </script>
 
-<style>
-</style>
+<style></style>

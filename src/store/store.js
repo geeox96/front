@@ -1,13 +1,12 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import fabricantes from './modules/fabricantes'
-import usuarios from './modules/usuarios'
-import liquidos from './modules/liquidos'
+import Vue from "vue";
+import Vuex from "vuex";
+import fabricantes from "./modules/fabricantes";
+import usuarios from "./modules/usuarios";
+import liquidos from "./modules/liquidos";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
-  
   modules: {
     fabricantes,
     usuarios,
@@ -21,26 +20,25 @@ export default new Vuex.Store({
     cor: "",
     tempo: 3000,
     token: null
-
   },
 
   mutations: {
     abrirDrawer() {
-      this.state.drawer = !this.state.drawer
+      this.state.drawer = !this.state.drawer;
     },
 
     snackbar(state, dados) {
-      const { texto, cor, tempo } = dados
+      const { texto, cor, tempo } = dados;
 
-      state.snackbar = true
-      state.textoSnack = texto
-      state.cor = cor
-      state.tempo = tempo
+      state.snackbar = true;
+      state.textoSnack = texto;
+      state.cor = cor;
+      state.tempo = tempo;
     }
   },
-  actions : {
+  actions: {
     async chamarSnack({ commit }, dados) {
-      commit('snackbar', dados)
+      commit("snackbar", dados);
     }
   }
-})
+});

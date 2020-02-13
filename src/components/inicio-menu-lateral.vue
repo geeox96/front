@@ -3,24 +3,30 @@
     v-model="$store.state.drawer"
     expand-on-hover
     app
-    dark
     hide-overlay
-    color="tertiary"
+    color="primary"
   >
-    <v-list-item v-for="item in menu" :key="item.title" @click="nevegarPara(item.ir)">
+    <v-list-item
+      v-for="item in menu"
+      :key="item.title"
+      @click="nevegarPara(item.ir)"
+    >
       <v-list-item-icon>
-        <v-icon>{{item.icon}}</v-icon>
+        <v-icon class="text--text">{{ item.icon }}</v-icon>
       </v-list-item-icon>
-      <v-list-item-title class="ml-5">{{item.titulo}}</v-list-item-title>
+      <v-list-item-title class="ml-5 text--text">{{
+        item.titulo
+      }}</v-list-item-title>
     </v-list-item>
     <v-list-item @click="abrirClassificado">
       <v-list-item-icon>
-        <v-icon>mdi-store</v-icon>
+        <v-icon class="text--text">mdi-store</v-icon>
       </v-list-item-icon>
-      <v-list-item-title class="ml-5">Classificados Vape</v-list-item-title>
+      <v-list-item-title class="ml-5 text--text"
+        >Classificados Vape</v-list-item-title
+      >
     </v-list-item>
   </v-navigation-drawer>
-  
 </template>
 
 <script>
@@ -51,5 +57,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
